@@ -1,0 +1,11 @@
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\bin\Debug\netcoreapp2.0\MVC-CodeFirst-Login.deps.json
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\bin\Debug\netcoreapp2.0\MVC-CodeFirst-Login.runtimeconfig.json
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\bin\Debug\netcoreapp2.0\MVC-CodeFirst-Login.runtimeconfig.dev.json
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\bin\Debug\netcoreapp2.0\MVC-CodeFirst-Login.dll
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\bin\Debug\netcoreapp2.0\MVC-CodeFirst-Login.pdb
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\obj\Debug\netcoreapp2.0\MVC-CodeFirst-Login.csprojResolveAssemblyReference.cache
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\obj\Debug\netcoreapp2.0\MVC-CodeFirst-Login.csproj.CoreCompileInputs.cache
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\obj\Debug\netcoreapp2.0\MVC-CodeFirst-Login.AssemblyInfoInputs.cache
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\obj\Debug\netcoreapp2.0\MVC-CodeFirst-Login.AssemblyInfo.cs
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\obj\Debug\netcoreapp2.0\MVC-CodeFirst-Login.dll
+C:\Users\Farshid\Desktop\C#-Projects-2018\MVC-CodeFirst-Login\MVC-CodeFirst-Login\obj\Debug\netcoreapp2.0\MVC-CodeFirst-Login.pdb
