@@ -12,5 +12,6 @@ namespace MVC_CodeFirst_Login.Models {
 
         }
         public DbSet<UserAccount> UserAccount { get; set; }
+        public DbSet<UserType> UserType { get; set; }
     }
 }

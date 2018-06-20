@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,5 +32,10 @@ namespace MVC_CodeFirst_Login.Models {
         [Compare("Password", ErrorMessage ="pass moet moatch")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "F")]
+        public int UserTypeId { get; set; }
+        //public UserType UserType { get; set; }
+        public List<UserType> UserTypes { get; set; }
     }
 }

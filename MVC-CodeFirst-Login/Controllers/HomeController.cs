@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
- 
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MVC_CodeFirst_Login.Models;
 
 namespace MVC_CodeFirst_Login.Controllers
@@ -34,6 +35,14 @@ namespace MVC_CodeFirst_Login.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult UserTypes()
+        {
+            var userTypes = _context.UserType.ToList();
+            var viewModel = new UserAccount { UserTypes = userTypes };
+            return View(userTypes);
         }
 
         public IActionResult Error()

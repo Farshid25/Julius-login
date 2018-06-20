@@ -27,7 +27,7 @@ namespace MVC_CodeFirst_Login
             services.AddMvc();
             services.AddDistributedMemoryCache();
             services.AddSession();
-            var Connection = @"Server=(localdb)\mssqllocaldb;Database = MVCLoginDB;Trusted_Connection = true;";
+            var Connection = @"Server=(localdb)\mssqllocaldb;Database = msdb;Trusted_Connection = true;";
                 services.AddDbContext<OurDbContext>(options => options.UseSqlServer(Connection));
         }
 
