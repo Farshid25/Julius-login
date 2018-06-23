@@ -11,7 +11,7 @@ namespace MVC_CodeFirst_Login.Models {
         public OurDbContext(DbContextOptions<OurDbContext> options): base(options) {
 
         }
-        public DbSet<UserAccount> UserAccount { get; set; }
-        public DbSet<UserType> UserType { get; set; }
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<GeneralPractioner> GeneralPractioners { get; set; }
     }
 }
