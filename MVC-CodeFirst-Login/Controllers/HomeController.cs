@@ -20,7 +20,7 @@ namespace MVC_CodeFirst_Login.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.UserAccount.ToList());
+            return View(_context.Patient.ToList());
         }
 
         public IActionResult About()
@@ -37,13 +37,7 @@ namespace MVC_CodeFirst_Login.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult UserTypes()
-        {
-            var userTypes = _context.UserType.ToList();
-            var viewModel = new UserAccount { UserTypes = userTypes };
-            return View(userTypes);
-        }
+     
 
         public IActionResult Error()
         {
@@ -57,13 +51,13 @@ namespace MVC_CodeFirst_Login.Controllers
 
         //Action?
         [HttpPost]
-        public ActionResult Register(UserAccount user) {
+        public ActionResult Register(Patient patient) {
             if (ModelState.IsValid) {
-                _context.UserAccount.Add(user);
+                _context.Patient.Add(patient);
                 _context.SaveChanges();
 
                 ModelState.Clear();
-                ViewBag.message = user.FirstName + " " + user.LastName + " is successful registered";
+                ViewBag.message = patient.FirstName + " " + patient.LastName + " is successful registered";
             }
             return View();
         }
@@ -73,13 +67,13 @@ namespace MVC_CodeFirst_Login.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UserAccount user) {
-            var account = _context.UserAccount.Where(u => u.UserName == user.UserName &&
-            u.Password == user.Password).FirstOrDefault();
+        public ActionResult Login(Patient patient) {
+            var account = _context.Patient.Where(u => u.UserName == patient.UserName &&
+            u.Password == patient.Password).First();
             if(account != null) {
-                HttpContext.Session.SetString("UserId", account.UserId.ToString());
+                HttpContext.Session.SetString("PatientId", account.PatientId.ToString());
                 HttpContext.Session.SetString("UserName", account.UserName); 
-                return RedirectToAction("Welcome");
+                return View("Welcome", patient);
             }
             else {
                 ModelState.AddModelError("", "username or pass is wrong");

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC_CodeFirst_Login.Models.UserAccount>
+﻿@model IEnumerable<MVC_CodeFirst_Login.Models.Patient>
 @{
 	ViewData["Title"] = "Home Page";
 }
@@ -17,13 +17,13 @@
 				<th>Email</th>
 			</tr>
 			@foreach (var item in Model) {
-				<tr>
-					<td>@item.FirstName</td>
-					<td>@item.LastName</td>
-					<td>@item.UserName</td>
-					<td>@item.Email</td>
-					@*<td>@item.UserType.TypeName</td>*@
-				</tr>
+			<tr>
+				<td>@item.FirstName</td>
+				<td>@item.LastName</td>
+				@*<td>@item.UserName</td>*@
+				<td>@item.Email</td>
+				@*<td>@item.Patient.TypeName</td>*@
+			</tr>
 			}
 		</table>
 		}
