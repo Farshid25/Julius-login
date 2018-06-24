@@ -11,7 +11,7 @@ namespace MVC_CodeFirst_Login.Models
         [Key]
         public int DiagnosisId { get; set; }
 
-        public string Topic { get; set; }
+        public string Name { get; set; }
 
         public DateTime BeginDate { get; set; }
 

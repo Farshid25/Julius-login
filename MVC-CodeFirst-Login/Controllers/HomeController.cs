@@ -45,19 +45,40 @@ namespace MVC_CodeFirst_Login.Controllers
         }
 
         //IAction??
-        public IActionResult Register() {
+        public IActionResult GPRegister() {
             return View();
         }
 
-        //Action?
         [HttpPost]
-        public ActionResult Register(Patient patient) {
+        public ActionResult GPRegister(GeneralPractioner generalPractioner) {
             if (ModelState.IsValid) {
+                _context.GeneralPractioner.Add(generalPractioner);
+                _context.SaveChanges();
+
+                ModelState.Clear();
+                ViewBag.message = generalPractioner.FirstName + " " + generalPractioner.LastName + 
+                    " is successful registered";
+            } else
+            {
+                ViewBag.message = "register failed.";
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PatientRegister(Patient patient)
+        {
+            if (ModelState.IsValid)
+            {
                 _context.Patient.Add(patient);
                 _context.SaveChanges();
 
                 ModelState.Clear();
                 ViewBag.message = patient.FirstName + " " + patient.LastName + " is successful registered";
+            }
+            else
+            {
+                ViewBag.message = "register failed.";
             }
             return View();
         }
@@ -67,19 +88,31 @@ namespace MVC_CodeFirst_Login.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Patient patient) {
+        public ActionResult Login(Patient patient, GeneralPractioner generalPractioner)
+        {
             var account = _context.Patient.Where(u => u.UserName == patient.UserName &&
             u.Password == patient.Password).First();
-            if(account != null) {
+            //var account2 = _context.GeneralPractioner.Where(u => u.UserName == generalPractioner.UserName &&
+            //u.Password == generalPractioner.Password).First();
+
+            if (account != null)
+            {
                 HttpContext.Session.SetString("PatientId", account.PatientId.ToString());
-                HttpContext.Session.SetString("UserName", account.UserName); 
+                HttpContext.Session.SetString("UserName", account.UserName);
                 return View("Welcome", patient);
             }
-            else {
+            // else if (account2 != null) {
+            //    HttpContext.Session.SetString("UserId", account2.UserId.ToString());
+            //    HttpContext.Session.SetString("UserName", account2.UserName);
+            //    return View("Welcome", generalPractioner);
+            //}
+            else
+            {
                 ModelState.AddModelError("", "username or pass is wrong");
             }
             return View();
         }
+
         public ActionResult Welcome() {
             if(HttpContext.Session.GetString("UserId") != null) {
                 ViewBag.UserName = HttpContext.Session.GetString("UserName");
@@ -93,6 +126,5 @@ namespace MVC_CodeFirst_Login.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
-
     }
 }
