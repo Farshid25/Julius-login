@@ -91,9 +91,10 @@ namespace MVC_CodeFirst_Login.Controllers
         public ActionResult Login(Patient patient, GeneralPractioner generalPractioner)
         {
             var account = _context.Patient.Where(u => u.UserName == patient.UserName &&
-            u.Password == patient.Password).First();
-            //var account2 = _context.GeneralPractioner.Where(u => u.UserName == generalPractioner.UserName &&
-            //u.Password == generalPractioner.Password).First();
+            u.Password == patient.Password).FirstOrDefault();
+
+            var account2 = _context.GeneralPractioner.Where(u => u.UserName == generalPractioner.UserName &&
+            u.Password == generalPractioner.Password).First();
 
             if (account != null)
             {
@@ -101,11 +102,11 @@ namespace MVC_CodeFirst_Login.Controllers
                 HttpContext.Session.SetString("UserName", account.UserName);
                 return View("Welcome", patient);
             }
-            // else if (account2 != null) {
-            //    HttpContext.Session.SetString("UserId", account2.UserId.ToString());
-            //    HttpContext.Session.SetString("UserName", account2.UserName);
-            //    return View("Welcome", generalPractioner);
-            //}
+            else if (account2 != null) {
+                HttpContext.Session.SetString("UserId", account2.UserId.ToString());
+                HttpContext.Session.SetString("UserName", account2.UserName);
+                return View("Welcome", generalPractioner);
+            }
             else
             {
                 ModelState.AddModelError("", "username or pass is wrong");

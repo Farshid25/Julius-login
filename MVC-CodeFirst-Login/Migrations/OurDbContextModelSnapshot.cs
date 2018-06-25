@@ -47,7 +47,7 @@ namespace MVCCodeFirstLogin.Migrations
 
                     b.Property<int>("HypotheseId");
 
-                    b.Property<string>("Topic");
+                    b.Property<string>("Name");
 
                     b.HasKey("DiagnosisId");
 

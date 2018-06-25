@@ -31,17 +31,19 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-					<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-					@if (Context.Session.GetString("PatientId") != null) {
-						<li><a asp-area="" asp-controller="Home" asp-action="Logout">Logout</a></li>
+					@if (Context.Session.GetString("UserId") != null) {
+						<li><a asp-area="" asp-controller="Home" asp-action="Index">Patienten</a></li>
 					}
-					else {
-						<li><a asp-area="" asp-controller="Home" asp-action="GPRegister">Register</a></li>
-						<li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
-					}
-				</ul>
+						<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+						<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+						@if (Context.Session.GetString("PatientId") != null || Context.Session.GetString("UserId") != null) {
+							<li><a asp-area="" asp-controller="Home" asp-action="Logout">Logout</a></li>
+						}
+						else {
+							<li><a asp-area="" asp-controller="Home" asp-action="GPRegister">Register</a></li>
+							<li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
+						}
+					</ul>
 			</div>
 		</div>
 	</nav>
