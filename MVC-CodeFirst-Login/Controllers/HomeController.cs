@@ -23,12 +23,16 @@ namespace MVC_CodeFirst_Login.Controllers
             return View(_context.Patient.ToList());
         }
 
-        public IActionResult About()
+        public IActionResult Episode()
         {
             ViewData["Message"] = "Your application description page.";
 
             return View();
         }
+
+        //public IActionResult Diagnosis() {
+        //    return View(_context.Diagnosis.ToList());
+        //}
 
         public IActionResult Contact()
         {

@@ -15,5 +15,6 @@ namespace MVC_CodeFirst_Login.Models {
         public DbSet<GeneralPractioner> GeneralPractioner { get; set; }
         public DbSet<Consult> Consult { get; set; }
         public DbSet<Diagnosis> Diagnosis { get; set; }
+        public DbSet<Episode> Episode { get; set; }
     }
 }
