@@ -25,6 +25,27 @@ namespace MVC_CodeFirst_Login.Controllers
             return View(diagnosis);
         }
 
+        // GET: Diagnosis/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Diagnosis/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("DiagnosisId,ConsultId,DSId,HypotheseId,Name,PatientId,UserId")] Diagnosis diagnosis)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(diagnosis);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Diagnosis));
+            }
+            return View(diagnosis);
+        }
+
+
         //public IActionResult GiveDiagnosis()
         //{
         //var allDiagnose = from d in _context.Diagnosis
