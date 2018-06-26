@@ -130,10 +130,22 @@ namespace MVCCodeFirstLogin.Migrations
                     b.ToTable("Patient");
                 });
 
+            modelBuilder.Entity("MVC_CodeFirst_Login.Models.Prescription", b =>
+                {
+                    b.Property<int>("PrescriptionId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("PrescriptionId");
+
+                    b.ToTable("Prescriptions");
+                });
+
             modelBuilder.Entity("MVC_CodeFirst_Login.Models.Diagnosis", b =>
                 {
                     b.HasOne("MVC_CodeFirst_Login.Models.Patient", "patient")
-                        .WithMany()
+                        .WithMany("Diagnoses")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade);
 
