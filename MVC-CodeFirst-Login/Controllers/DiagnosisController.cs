@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using MVC_CodeFirst_Login.Models;
 using System;
 using System.Collections.Generic;
@@ -14,21 +16,43 @@ namespace MVC_CodeFirst_Login.Controllers
             _context = context;
         }
 
-        public IActionResult Diagnosis() {
-            return View(_context.Diagnosis.ToList());
+        public IActionResult Diagnosis()
+        {
+            var diagnosis = _context.Diagnosis
+                .Include(pa => pa.patient)
+                .Include(gp => gp.generalPractioner).ToList();
+
+            return View(diagnosis);
         }
 
-        public IActionResult GeefDiagnosis() {
+        //public IActionResult GiveDiagnosis()
+        //{
+        //var allDiagnose = from d in _context.Diagnosis
+        //                  join p in _context.Patient on d.PatientId equals p.PatientId
+        //                  join gp in _context.GeneralPractioner on d.UserId equals gp.UserId
+        //                  select new
+        //                  {
+        //                      PatientName = p.FirstName,
+        //                      GPName = gp.FirstName
+        //                  };
+        //    return View(allDiagnose);
+        //}
 
-            var diagnosisWithNames = _context.Diagnosis
-               .GroupJoin(_context.Patient, d => d.DiagnosisId, p => p.PatientId, (d, f) => new {
-                   Diagnosis = d,
-                   Patient = f.Join(_context.Diagnosis, dl => dl.TheirFriends, pl => pl.PatientId,
-                       (dl, pl) => pl)
-               })
-               .ToList();
+        //public IActionResult GeefDiagnosis()
+        //{
 
-        }
-        
-        }
+        //    var diagnosisWithNames = _context.Diagnosis
+        //       .GroupJoin(_context.Patient, d => d.DiagnosisId, p => p.PatientId, (d, f) => new
+        //       {
+        //           Diagnosis = d,
+        //           Patient = f.Join(_context.Diagnosis, dl => dl.FirstName, pl => pl.PatientId,
+        //               (dl, pl) => pl)
+        //       })
+        //       .ToList();
+
+        //    return diagnosisWithNames;
+
+        //}
+
+    }
 }

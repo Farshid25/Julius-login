@@ -40,7 +40,6 @@ namespace MVC_CodeFirst_Login.Controllers
 
             return View();
         }
-
      
 
         public IActionResult Error()

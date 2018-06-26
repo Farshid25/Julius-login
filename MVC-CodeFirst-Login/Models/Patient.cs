@@ -33,6 +33,6 @@ namespace MVC_CodeFirst_Login.Models {
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-       
+        public List<Diagnosis> Diagnoses { get; set; }
     }
 }
