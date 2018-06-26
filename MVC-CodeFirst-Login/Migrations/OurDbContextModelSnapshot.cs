@@ -49,9 +49,31 @@ namespace MVCCodeFirstLogin.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("PatientId");
+
+                    b.Property<int>("UserId");
+
                     b.HasKey("DiagnosisId");
 
+                    b.HasIndex("PatientId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("Diagnosis");
+                });
+
+            modelBuilder.Entity("MVC_CodeFirst_Login.Models.Episode", b =>
+                {
+                    b.Property<int>("ConsultId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("BeginDate");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.HasKey("ConsultId");
+
+                    b.ToTable("Episode");
                 });
 
             modelBuilder.Entity("MVC_CodeFirst_Login.Models.GeneralPractioner", b =>
@@ -88,8 +110,6 @@ namespace MVCCodeFirstLogin.Migrations
 
                     b.Property<string>("ConfirmPassword");
 
-                    b.Property<int>("DiagnosisId");
-
                     b.Property<string>("Email")
                         .IsRequired();
 
@@ -108,6 +128,19 @@ namespace MVCCodeFirstLogin.Migrations
                     b.HasKey("PatientId");
 
                     b.ToTable("Patient");
+                });
+
+            modelBuilder.Entity("MVC_CodeFirst_Login.Models.Diagnosis", b =>
+                {
+                    b.HasOne("MVC_CodeFirst_Login.Models.Patient", "patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MVC_CodeFirst_Login.Models.GeneralPractioner", "generalPractioner")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

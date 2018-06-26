@@ -18,7 +18,17 @@ namespace MVC_CodeFirst_Login.Controllers
             return View(_context.Diagnosis.ToList());
         }
 
+        public IActionResult GeefDiagnosis() {
 
+            var diagnosisWithNames = _context.Diagnosis
+               .GroupJoin(_context.Patient, d => d.DiagnosisId, p => p.PatientId, (d, f) => new {
+                   Diagnosis = d,
+                   Patient = f.Join(_context.Diagnosis, dl => dl.TheirFriends, pl => pl.PatientId,
+                       (dl, pl) => pl)
+               })
+               .ToList();
 
-    }
+        }
+        
+        }
 }

@@ -98,7 +98,7 @@ namespace MVC_CodeFirst_Login.Controllers
             u.Password == patient.Password).FirstOrDefault();
 
             var account2 = _context.GeneralPractioner.Where(u => u.UserName == generalPractioner.UserName &&
-            u.Password == generalPractioner.Password).First();
+            u.Password == generalPractioner.Password).FirstOrDefault();
 
             if (account != null)
             {
