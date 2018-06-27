@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVC_CodeFirst_Login.Models.Consult>
+@{
+    ViewData["Title"] = "Consult";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Diagnoses</h2>
+        @if (Model.Any())
+        {
+            <table class="table">
+                <tr>
+                    <th>BeginDate</th>
+                    <th>EpisodeId</th>
+                    <th>PrescriptionId</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BeginDate</td>
+                        <td>@item.EpisodeId</td>
+                        <td>@item.PrescriptionId</td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>there are no regisstered users</p>
+        }
+    </div>
+
+    <p>
+        <a asp-action="Create">Maak consult</a>
+    </p>
+</div>
