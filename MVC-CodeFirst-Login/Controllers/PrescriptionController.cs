@@ -16,18 +16,19 @@ namespace MVC_CodeFirst_Login.Controllers
             _context = context;
         }
 
-        public IActionResult Prescription() {
-            return View(_context.Prescriptions.ToList());
-        }
-
-        //public IActionResult Prescription()
-        //{
-        //    //var prescription = _context.Prescriptions
-        //    //    .Include(pa => pa.patient)
-        //    //    .Include(gp => gp.generalPractioner).ToList();
-
-        //    return View();
+        //public IActionResult Prescription() {
+        //    return View(_context.Prescriptions.ToList());
         //}
+
+        public IActionResult Prescription() {
+            var prescription = _context.Prescriptions
+                .Include(pa => pa.patient)
+                .Include(mn => mn.medication)
+                .Include(gp => gp.generalPractioner).ToList();
+                
+
+            return View(prescription);
+        }
 
         // GET: Diagnosis/Create
         public IActionResult Create()
@@ -38,15 +39,15 @@ namespace MVC_CodeFirst_Login.Controllers
         // POST: Diagnosis/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DiagnosisId,ConsultId,DSId,HypotheseId,Name,PatientId,UserId")] Diagnosis diagnosis)
+        public async Task<IActionResult> Create([Bind("PriscriptionId,Quantity,MedicationId,PatientId,UserId")] Prescription prescription)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(diagnosis);
+                _context.Add(prescription);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Diagnosis));
+                return RedirectToAction(nameof(Prescription));
             }
-            return View(diagnosis);
+            return View(prescription);
         } 
 
     }

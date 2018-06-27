@@ -9,16 +9,21 @@
         @if (Model.Any())
         {
             <table class="table">
-                <tr>
-                    <th>quantity</th>
- 
-                </tr>
+				<tr>
+					<th>Medicijn naam</th>
+					<th>Aantal</th>
+					<th>Patient naam</th>
+					<th>User naam</th>
+				</tr>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.Quantity</td>
-         
-                    </tr>
+				<tr>
+					<td>@item.medication.Name</td>
+					<td>@item.Quantity</td>
+					<td>@item.patient.FirstName</td>
+					<td>@item.generalPractioner.FirstName</td>
+
+				</tr>
                 }
             </table>
         }
