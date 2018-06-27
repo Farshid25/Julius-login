@@ -9,6 +9,7 @@ namespace MVC_CodeFirst_Login.Models
 {
     public class Diagnosis
     {
+        //d
         [Key]
         public int DiagnosisId { get; set; }
 

@@ -107,6 +107,20 @@ namespace MVCCodeFirstLogin.Migrations
                     b.ToTable("GeneralPractioner");
                 });
 
+            modelBuilder.Entity("MVC_CodeFirst_Login.Models.Medication", b =>
+                {
+                    b.Property<int>("MedicationId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<double>("Price");
+
+                    b.HasKey("MedicationId");
+
+                    b.ToTable("Medication");
+                });
+
             modelBuilder.Entity("MVC_CodeFirst_Login.Models.Patient", b =>
                 {
                     b.Property<int>("PatientId")
@@ -139,9 +153,21 @@ namespace MVCCodeFirstLogin.Migrations
                     b.Property<int>("PrescriptionId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("MedicationId");
+
+                    b.Property<int>("PatientId");
+
                     b.Property<int>("Quantity");
 
+                    b.Property<int>("UserId");
+
                     b.HasKey("PrescriptionId");
+
+                    b.HasIndex("MedicationId");
+
+                    b.HasIndex("PatientId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Prescriptions");
                 });
@@ -150,6 +176,24 @@ namespace MVCCodeFirstLogin.Migrations
                 {
                     b.HasOne("MVC_CodeFirst_Login.Models.Patient", "patient")
                         .WithMany("Diagnoses")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MVC_CodeFirst_Login.Models.GeneralPractioner", "generalPractioner")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MVC_CodeFirst_Login.Models.Prescription", b =>
+                {
+                    b.HasOne("MVC_CodeFirst_Login.Models.Medication", "medication")
+                        .WithMany()
+                        .HasForeignKey("MedicationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MVC_CodeFirst_Login.Models.Patient", "patient")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade);
 

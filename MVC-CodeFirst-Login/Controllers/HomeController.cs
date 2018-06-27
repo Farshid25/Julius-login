@@ -68,23 +68,25 @@ namespace MVC_CodeFirst_Login.Controllers
             return View();
         }
 
+        public IActionResult PaRegister() {
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult PatientRegister(Patient patient)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult PaRegister(Patient patient) {
+            if (ModelState.IsValid) {
                 _context.Patient.Add(patient);
                 _context.SaveChanges();
 
                 ModelState.Clear();
-                ViewBag.message = patient.FirstName + " " + patient.LastName + " is successful registered";
+                ViewBag.message = patient.FirstName + " " + patient.LastName +
+                    " is successful registered";
             }
-            else
-            {
+            else {
                 ViewBag.message = "register failed.";
             }
             return View();
-        }
+        }        
 
         public ActionResult Login() {
             return View();
