@@ -14,6 +14,7 @@
                     <th>Begin datum</th>
                     <th>Patient naam</th>
                     <th>Huisarts naam</th>
+                    <th></th>
                 </tr>
                 @foreach (var item in Model)
                 {
@@ -22,6 +23,7 @@
                         <td>@item.BeginDate</td>
                         <td>@item.patient.FirstName</td>
                         <td>@item.generalPractioner.FirstName</td>
+                        <td><a asp-controller="Consult" asp-action="Create" asp-route-id="@item.DiagnosisId">Maak consult aan</a></td>
                     </tr>
                 }
             </table>

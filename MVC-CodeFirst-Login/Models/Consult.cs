@@ -11,8 +11,12 @@ namespace MVC_CodeFirst_Login.Models
         [Key]
         public int ConsultId { get; set; }
 
+        public int DiagnosisId { get; set; }
+
         public int EpisodeId { get; set; }
 
         public DateTime BeginDate { get; set; }
+
+        public int PrescriptionId { get; set; }
     }
 }
