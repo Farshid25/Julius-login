@@ -32,53 +32,18 @@ namespace MVC_CodeFirst_Login.Controllers
             return View();
         }
 
-        // GET: Students/Edit/5
-        public async Task<IActionResult> Create(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var diagnosis = await _context.Diagnosis.SingleOrDefaultAsync(m => m.DiagnosisId == id);
-            if (diagnosis == null)
-            {
-                return NotFound();
-            }
-            return View(diagnosis);
-        }
-
         // POST: Consult/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int diagnosisId, [Bind("ConsultId,BeginDate,EpisodeId,PrescriptionId")] Consult consult)
+        public async Task<IActionResult> Create([Bind("ConsultId,BeginDate,EpisodeId,PrescriptionId")] Consult consult)
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(consult);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DiagnosisExists(diagnosisId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Add(consult);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Consult));
             }
             return View(consult);
-        }
-
-        private bool DiagnosisExists(int id)
-        {
-            return _context.Diagnosis.Any(e => e.DiagnosisId == id);
         }
     }
 }

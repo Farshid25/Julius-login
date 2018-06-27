@@ -13130,11 +13130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Serkan\\Documents\\Visual Studio 2017\\Projects\\LastProjectJul\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
+      "projectUniqueName": "C:\\Users\\Serkan\\Desktop\\LastProjectJul\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
       "projectName": "MVC-CodeFirst-Login",
-      "projectPath": "C:\\Users\\Serkan\\Documents\\Visual Studio 2017\\Projects\\LastProjectJul\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
+      "projectPath": "C:\\Users\\Serkan\\Desktop\\LastProjectJul\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
       "packagesPath": "C:\\Users\\Serkan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Serkan\\Documents\\Visual Studio 2017\\Projects\\LastProjectJul\\MVC-CodeFirst-Login\\obj\\",
+      "outputPath": "C:\\Users\\Serkan\\Desktop\\LastProjectJul\\MVC-CodeFirst-Login\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

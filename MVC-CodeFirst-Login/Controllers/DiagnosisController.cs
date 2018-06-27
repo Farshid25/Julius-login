@@ -44,36 +44,5 @@ namespace MVC_CodeFirst_Login.Controllers
             }
             return View(diagnosis);
         }
-
-
-        //public IActionResult GiveDiagnosis()
-        //{
-        //var allDiagnose = from d in _context.Diagnosis
-        //                  join p in _context.Patient on d.PatientId equals p.PatientId
-        //                  join gp in _context.GeneralPractioner on d.UserId equals gp.UserId
-        //                  select new
-        //                  {
-        //                      PatientName = p.FirstName,
-        //                      GPName = gp.FirstName
-        //                  };
-        //    return View(allDiagnose);
-        //}
-
-        //public IActionResult GeefDiagnosis()
-        //{
-
-        //    var diagnosisWithNames = _context.Diagnosis
-        //       .GroupJoin(_context.Patient, d => d.DiagnosisId, p => p.PatientId, (d, f) => new
-        //       {
-        //           Diagnosis = d,
-        //           Patient = f.Join(_context.Diagnosis, dl => dl.FirstName, pl => pl.PatientId,
-        //               (dl, pl) => pl)
-        //       })
-        //       .ToList();
-
-        //    return diagnosisWithNames;
-
-        //}
-
     }
 }
