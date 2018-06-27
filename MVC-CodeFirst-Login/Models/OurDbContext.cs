@@ -2,11 +2,9 @@
 
 
 namespace MVC_CodeFirst_Login.Models {
-    public class OurDbContext : DbContext
-    {
-        public OurDbContext(DbContextOptions<OurDbContext> options): base(options) {
-
-        }
+    public class OurDbContext : DbContext {
+        public OurDbContext(DbContextOptions<OurDbContext> options) : base(options) { }
+   
         public DbSet<Patient> Patient { get; set; }
         public DbSet<GeneralPractioner> GeneralPractioner { get; set; }
         public DbSet<Consult> Consult { get; set; }
@@ -15,3 +13,4 @@ namespace MVC_CodeFirst_Login.Models {
         public DbSet<Prescription> Prescriptions { get; set; }
     }
 }
+

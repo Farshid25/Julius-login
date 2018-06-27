@@ -22,6 +22,10 @@ namespace MVC_CodeFirst_Login.Models {
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        internal Task<IEnumerable<GeneralPractioner>> ToListAsync() {
+            throw new NotImplementedException();
+        }
+
         [Required(ErrorMessage = "Voer uw gebruikersnaam in")]
         public string UserName { get; set; }
 
