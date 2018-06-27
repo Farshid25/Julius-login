@@ -19,9 +19,8 @@ namespace MVC_CodeFirst_Login.Controllers
 
         public IActionResult Consult()
         {
-            //var diagnosis = _context.Diagnosis
-            //    .Include(pa => pa.patient)
-            //    .Include(gp => gp.generalPractioner).ToList();
+            var consult = _context.Consult
+                .Include(d => d.diagnosis).ToList();
 
             return View(_context.Consult.ToList());
         }
@@ -35,7 +34,7 @@ namespace MVC_CodeFirst_Login.Controllers
         // POST: Consult/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ConsultId,BeginDate,EpisodeId,PrescriptionId")] Consult consult)
+        public async Task<IActionResult> Create([Bind("ConsultId,Name,BeginDate,EndDate,DiagnosisId")] Consult consult)
         {
             if (ModelState.IsValid)
             {

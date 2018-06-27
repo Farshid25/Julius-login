@@ -5,22 +5,22 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h2>Diagnoses</h2>
+        <h2>Consult</h2>
         @if (Model.Any())
         {
             <table class="table">
                 <tr>
                     <th>BeginDate</th>
-                    <th>EpisodeId</th>
-                    <th>PrescriptionId</th>
+                    <th>Patient naam</th>
+                    <th>Huisarts naam</th>
                 </tr>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.BeginDate</td>
-                        <td>@item.EpisodeId</td>
-                        <td>@item.PrescriptionId</td>
-                    </tr>
+                <tr>
+                    <td>@item.BeginDate</td>
+                    <td>@item.EndDate</td>
+                    <td>@item.Name</td>
+                </tr>
                 }
             </table>
         }

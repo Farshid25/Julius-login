@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,12 +12,14 @@ namespace MVC_CodeFirst_Login.Models
         [Key]
         public int ConsultId { get; set; }
 
-        public int DiagnosisId { get; set; }
-
-        public int EpisodeId { get; set; }
+        public string Name { get; set; }
 
         public DateTime BeginDate { get; set; }
 
-        public int PrescriptionId { get; set; }
+        public DateTime EndDate { get; set; }
+
+        [ForeignKey("Diagnosis")]
+        public int DiagnosisId { get; set; }
+        public Diagnosis diagnosis { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace MVC_CodeFirst_Login.Controllers
         //}
 
         public IActionResult Prescription() {
-            var prescription = _context.Prescriptions
+            var prescription = _context.Prescription
                 .Include(pa => pa.patient)
                 .Include(mn => mn.medication)
                 .Include(gp => gp.generalPractioner).ToList();

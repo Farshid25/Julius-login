@@ -34,7 +34,7 @@
 					@if (Context.Session.GetString("UserId") != null) {
 						<li><a asp-area="" asp-controller="Home" asp-action="Index">Patienten</a></li>
 					}
-					<li><a asp-area="" asp-controller="Diagnosis" asp-action="Diagnosis">Mijn Diagnosis</a></li>
+					<li><a asp-area="" asp-controller="Diagnosis" asp-action="Diagnosis">Diagnosis</a></li>
 					<li><a asp-area="" asp-controller="Prescription" asp-action="Prescription">Prescription</a></li>
 					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 					@if (Context.Session.GetString("PatientId") != null || Context.Session.GetString("UserId") != null) {

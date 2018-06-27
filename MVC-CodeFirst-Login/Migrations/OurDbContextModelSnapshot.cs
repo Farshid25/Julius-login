@@ -29,11 +29,13 @@ namespace MVCCodeFirstLogin.Migrations
 
                     b.Property<int>("DiagnosisId");
 
-                    b.Property<int>("EpisodeId");
+                    b.Property<DateTime>("EndDate");
 
-                    b.Property<int>("PrescriptionId");
+                    b.Property<string>("Name");
 
                     b.HasKey("ConsultId");
+
+                    b.HasIndex("DiagnosisId");
 
                     b.ToTable("Consult");
                 });
@@ -44,8 +46,6 @@ namespace MVCCodeFirstLogin.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("BeginDate");
-
-                    b.Property<int>("ConsultId");
 
                     b.Property<int>("DSId");
 
@@ -64,20 +64,6 @@ namespace MVCCodeFirstLogin.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Diagnosis");
-                });
-
-            modelBuilder.Entity("MVC_CodeFirst_Login.Models.Episode", b =>
-                {
-                    b.Property<int>("ConsultId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("BeginDate");
-
-                    b.Property<DateTime>("EndDate");
-
-                    b.HasKey("ConsultId");
-
-                    b.ToTable("Episode");
                 });
 
             modelBuilder.Entity("MVC_CodeFirst_Login.Models.GeneralPractioner", b =>
@@ -169,7 +155,15 @@ namespace MVCCodeFirstLogin.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Prescriptions");
+                    b.ToTable("Prescription");
+                });
+
+            modelBuilder.Entity("MVC_CodeFirst_Login.Models.Consult", b =>
+                {
+                    b.HasOne("MVC_CodeFirst_Login.Models.Diagnosis", "diagnosis")
+                        .WithMany()
+                        .HasForeignKey("DiagnosisId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("MVC_CodeFirst_Login.Models.Diagnosis", b =>

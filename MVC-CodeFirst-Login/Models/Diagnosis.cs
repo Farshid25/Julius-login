@@ -21,8 +21,6 @@ namespace MVC_CodeFirst_Login.Models
 
         public int HypotheseId { get; set; }
 
-        public int ConsultId { get; set; }
-
         [ForeignKey("Patient")]
         public int PatientId { get; set; }
         public Patient patient { get; set; }
