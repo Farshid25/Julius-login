@@ -18,7 +18,7 @@
 	</environment>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-light" style="background-color: #9fdaff;">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,21 +27,21 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><strong> Julius</strong></a>
+				<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><strong>JuliusPortal</strong></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					@if (Context.Session.GetString("UserId") != null) {
+					@if (Context.Session.GetString("UserId") != null)
+					{
 						<li><a asp-area="" asp-controller="Home" asp-action="Index">Patienten</a></li>
+						<li><a asp-area="" asp-controller="Diagnosis" asp-action="Diagnosis">Diagnosis</a></li>
+						<li><a asp-area="" asp-controller="Prescription" asp-action="Prescription">Prescription</a></li>
 					}
-					<li><a asp-area="" asp-controller="Diagnosis" asp-action="Diagnosis">Diagnosis</a></li>
-					<li><a asp-area="" asp-controller="Prescription" asp-action="Prescription">Prescription</a></li>
 					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 					@if (Context.Session.GetString("PatientId") != null || Context.Session.GetString("UserId") != null) {
 						<li><a asp-area="" asp-controller="Home" asp-action="Logout">Logout</a></li>
 					}
 					else {
-						@*<li><a asp-area="" asp-controller="Home" asp-action="GPRegister">Register</a></li>*@
 						<li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
 					}
 				</ul>
