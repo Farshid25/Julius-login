@@ -6067,7 +6067,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
-      "sha512": "71aIE8pcYOb6Ej+CqKeu1XZ0jknjoJlD9ragkDnXrk84ovELnwxx2J9NM/JOlaqgVsNMq6Khu6SPFfkMbJRfug==",
+      "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
       "type": "package",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "files": [
@@ -10184,7 +10184,7 @@
       ]
     },
     "System.Linq.Queryable/4.0.1": {
-      "sha512": "G64YYCypSHpfIerkIAwaRPjT0vvrWWTi4kvWE6yJ9MIA9U/8Fcwu0RiJ8bGtWfzGoMqUJKYgkmMiBVM/N5XNeg==",
+      "sha512": "Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "type": "package",
       "path": "system.linq.queryable/4.0.1",
       "files": [
@@ -13124,23 +13124,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Farshid\\.nuget\\packages\\": {},
+    "C:\\Users\\Serkan\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Farshid\\Desktop\\C#-Projects-2018\\Julius\\Julius-login\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
+      "projectUniqueName": "C:\\Users\\Serkan\\Documents\\Visual Studio 2017\\Projects\\LastProjectJul\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
       "projectName": "MVC-CodeFirst-Login",
-      "projectPath": "C:\\Users\\Farshid\\Desktop\\C#-Projects-2018\\Julius\\Julius-login\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
-      "packagesPath": "C:\\Users\\Farshid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Farshid\\Desktop\\C#-Projects-2018\\Julius\\Julius-login\\MVC-CodeFirst-Login\\obj\\",
+      "projectPath": "C:\\Users\\Serkan\\Documents\\Visual Studio 2017\\Projects\\LastProjectJul\\MVC-CodeFirst-Login\\MVC-CodeFirst-Login.csproj",
+      "packagesPath": "C:\\Users\\Serkan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Serkan\\Documents\\Visual Studio 2017\\Projects\\LastProjectJul\\MVC-CodeFirst-Login\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Farshid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Serkan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

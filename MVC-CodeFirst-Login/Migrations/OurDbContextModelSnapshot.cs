@@ -27,7 +27,11 @@ namespace MVCCodeFirstLogin.Migrations
 
                     b.Property<DateTime>("BeginDate");
 
+                    b.Property<int>("DiagnosisId");
+
                     b.Property<int>("EpisodeId");
+
+                    b.Property<int>("PrescriptionId");
 
                     b.HasKey("ConsultId");
 
