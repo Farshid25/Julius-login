@@ -17,17 +17,19 @@
             {
                 <table class="table">
                     <tr>
+                        <th>Code</th>
                         <th>First name</th>
                         <th>Last name</th>
                         <th>Email</th>
                     </tr>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.FirstName</td>
-                            <td>@item.LastName</td>
-                            <td>@item.Email</td>
-                        </tr>
+                    <tr>
+                        <td>@item.PatientId</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Email</td>
+                    </tr>
                     }
                 </table>
             }

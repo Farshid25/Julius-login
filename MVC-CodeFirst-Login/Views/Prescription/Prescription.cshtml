@@ -1,22 +1,22 @@
 ﻿@model IEnumerable<MVC_CodeFirst_Login.Models.Prescription>
 @{
-    ViewData["Title"] = "Prescription";
+	ViewData["Title"] = "Voorschrift";
 }
 
 <div class="row">
-    <div class="col-md-12">
-		<h2>Prescription</h2>
-        @if (Model.Any())
-        {
-            <table class="table">
+	<div class="col-md-12">
+		<h2>Voorschrift</h2>
+		@if (Model.Any())
+		{
+			<table class="table">
 				<tr>
 					<th>Medicijn naam</th>
 					<th>Aantal</th>
 					<th>Patient naam</th>
 					<th>User naam</th>
 				</tr>
-                @foreach (var item in Model)
-                {
+				@foreach (var item in Model)
+				{
 				<tr>
 					<td>@item.medication.Name</td>
 					<td>@item.Quantity</td>
@@ -24,16 +24,16 @@
 					<td>@item.generalPractioner.FirstName</td>
 
 				</tr>
-                }
-            </table>
-        }
-        else
-        {
-            <p>there are no regisstered users</p>
-        }
-    </div>
+				}
+			</table>
+		}
+		else
+		{
+			<p>Er zijn geen voorschriften voor jou.</p>
+		}
+	</div>
 
-    <p>
-        <a asp-action="Create">Maak prisctiption</a>
-    </p>
+	<p>
+		<a asp-action="Create">Maak voorschrift</a>
+	</p>
 </div>

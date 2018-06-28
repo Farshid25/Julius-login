@@ -11,15 +11,13 @@
             <table class="table">
                 <tr>
                     <th>BeginDate</th>
-                    <th>Patient naam</th>
-                    <th>Huisarts naam</th>
+                    <th>EndDate</th>
                 </tr>
                 @foreach (var item in Model)
                 {
                 <tr>
                     <td>@item.BeginDate</td>
                     <td>@item.EndDate</td>
-                    <td>@item.Name</td>
                 </tr>
                 }
             </table>

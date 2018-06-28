@@ -18,7 +18,8 @@
 	</environment>
 </head>
 <body>
-	<nav class="navbar navbar-light" style="background-color: #9fdaff;">
+	<center><img src="~/images/JuliusLogo.png" /></center>
+	<nav cclass="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -30,19 +31,24 @@
 				<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><strong>JuliusPortal</strong></a>
 			</div>
 			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav" id="navbarNavAltMarkup">
 					@if (Context.Session.GetString("UserId") != null)
 					{
-						<li><a asp-area="" asp-controller="Home" asp-action="Index">Patienten</a></li>
-						<li><a asp-area="" asp-controller="Diagnosis" asp-action="Diagnosis">Diagnosis</a></li>
-						<li><a asp-area="" asp-controller="Prescription" asp-action="Prescription">Prescription</a></li>
+						<li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link">Patienten</a></li>
+					}
+					@if (Context.Session.GetString("PatientId") != null || Context.Session.GetString("UserId") != null)
+					{
+						<li><a asp-area="" asp-controller="Diagnosis" asp-action="Diagnosis">Diagnoses</a></li>
+						<li><a asp-area="" asp-controller="Prescription" asp-action="Prescription">Voorschrift</a></li>
 					}
 					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-					@if (Context.Session.GetString("PatientId") != null || Context.Session.GetString("UserId") != null) {
-						<li><a asp-area="" asp-controller="Home" asp-action="Logout">Logout</a></li>
+					@if (Context.Session.GetString("PatientId") != null || Context.Session.GetString("UserId") != null)
+					{
+						<li><a asp-area="" asp-controller="Home" asp-action="Logout">Uitloggen</a></li>
 					}
-					else {
-						<li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
+					else
+					{
+						<li><a asp-area="" asp-controller="Home" asp-action="Login">Inloggen</a></li>
 					}
 				</ul>
 			</div>
