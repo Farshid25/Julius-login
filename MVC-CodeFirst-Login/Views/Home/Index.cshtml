@@ -10,8 +10,6 @@
     @if (Context.Session.GetString("UserId") != null)
     {
         <div class="col-md-12">
-            @*<li><a asp-area="" asp-controller="Home" asp-action="GPRegister">Register Arts</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="PaRegister">Register Patient</a></li>*@
             <h2>Patienten</h2>
             @if (Model.Any())
             {
@@ -24,19 +22,19 @@
                     </tr>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.PatientId</td>
-                        <td>@item.FirstName</td>
-                        <td>@item.LastName</td>
-                        <td>@item.Email</td>
-                    </tr>
+                        <tr>
+                            <td>@item.PatientId</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.Email</td>
+                        </tr>
                     }
                 </table>
             }
 
             else
             {
-                <p>there are no regisstered users</p>
+                <p>Er zijn geen patienten.</p>
             }
         </div>
 

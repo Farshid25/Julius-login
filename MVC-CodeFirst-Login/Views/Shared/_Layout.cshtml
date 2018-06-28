@@ -44,7 +44,7 @@
 					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 					@if (Context.Session.GetString("PatientId") != null || Context.Session.GetString("UserId") != null)
 					{
-						<li><a asp-area="" asp-controller="Home" asp-action="Logout">Uitloggen</a></li>
+						<li><a asp-area="" asp-controller="Home" asp-action="Logout">Uitloggen, @Context.Session.GetString("UserName")</a></li>
 					}
 					else
 					{
